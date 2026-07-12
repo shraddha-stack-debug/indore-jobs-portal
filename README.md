@@ -1,6 +1,6 @@
 # Indore Jobs Portal
 
-A full-stack job portal for local jobs in Indore built using MERN Stack. Users can login, signup, apply for jobs. 
+A full-stack job portal for local jobs in Indore built using MERN Stack. Users can singup, login, apply for jobs. 
 
 ## Tech Stack
 **Frontend**: HTML, CSS, JavaScript
