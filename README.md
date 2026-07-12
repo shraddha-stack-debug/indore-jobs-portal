@@ -3,7 +3,7 @@
 A full-stack job portal for local jobs in Indore built using MERN Stack.
 
 ## Tech Stack
-**Frontend**: React, Vite, Tailwind CSS, Axios, React Router
+**Frontend**: HTML, CSS, JavaScript
 **Backend**: Node.js, Express.js
 **Database**: MongoDB, Mongoose
 **Auth**: JWT, Bcrypt
@@ -32,7 +32,6 @@ npm install
 # Setup Environment Variables
 Create `.env` file inside `server` folder:
 
-**Note**: `.env` file ko GitHub pe push mat karna.
 
 # Run Both Servers
 
