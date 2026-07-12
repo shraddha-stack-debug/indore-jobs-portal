@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up - IndoreJobs</title>
+    <style>
+        body{font-family:Arial; text-align:center; margin-top:50px; background:#f5f5f5;}
+        .box{background:white; width:300px; margin:auto; padding:20px; border-radius:8px;}
+        input{width:90%; padding:10px; margin:8px 0;}
+        button{padding:10px 20px; background:#007bff; color:white; border:none; cursor:pointer;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Create Account</h1>
+        <p>Find your dream job in Indore</p>
+        <form id="signupForm"> 
+            <input type="text" name="name" placeholder="Full Name" required><br>
+            <input type="email" name="email" placeholder="Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <script>
+            document.getElementById("signupForm").addEventListener("submit", async function(e){ 
+                e.preventDefault(); 
+
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData);
+
+                const res = await fetch("/api/auth/signup",{
+                    method: "POST",
+                    headers:{"Content-Type":"application/json"},
+                    body: JSON.stringify(data)
+                });
+
+                const result = await res.json();
+                if(res.ok){
+                    alert("✅ Account Created Successfully!");
+                   //window.location.href="/jobs.html";
+                }else{
+                    alert("❌ Error: "+result.error);
+                }
+            });
+        </script>
+        <p>Already have account? <a href="/login">Login</a></p>
+    </div>
+</body>
+</html>

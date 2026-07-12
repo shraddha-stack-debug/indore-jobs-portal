@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jobs</title>
+    <style>
+        body{
+            font-family:Arial; background:#f5f5f5; padding:20px;
+            background:linear-gradient(135deg,white);
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        h2{
+            text-align: center;
+            color: #007bff;
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(7, 33, 182, 0.2);
+        }
+
+        #jobs-list{
+            display:flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .job-card{
+            background:white; 
+            padding:15px; 
+            width: 28%;
+            min-width: 200px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            box-shadow:0 8px 20px rgba(0,0,0,0.15);
+            transition:transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #667eea; 
+            margin:10px 0; 
+            border-radius:8px; 
+            border-left:4px solid;
+            height: auto;     
+        }
+
+        .job-card:hover{
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+            border-radius: 11px;
+            border-color:rgba(0,0,0,0.25);
+        }
+        .job-card h3{
+            margin:0; 
+            color:#007bff;
+            font-size: 20px;
+            }
+        .job-card p{
+            margin: 8px 0;
+            color: #555;
+            font-size: 14px;
+        }
+        .job-card p strong{
+            color: #333;
+        }
+        .job-type{
+            display: inline-block;
+            background: #e0e7ff;
+            color:#4338ce;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .apply-btn{
+            background: #007bff;
+            color:white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: auto;
+            align-self: flex-end;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            margin-left: 180px;
+            font-weight: bold;
+        }
+        .apply-btn:hover{
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.4); 
+            background: #0056b3;
+        }
+        .apply-btn:disabled{
+            background: grey;
+            cursor: not-allowed;
+            transform: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome to Jobs Page</h2>
+    <div id="jobs-list">Loading jobs..</div> <!-- ✅ J ko j kiya -->
+
+    <script>
+        // job.js ki jagah direct yahi likh diya
+        fetch("http://localhost:5000/api/jobs")
+        .then(res => res.json())
+        .then(jobs => {
+            const jobsList = document.getElementById("jobs-list"); // ✅ j chota
+            
+            jobsList.innerHTML='';
+
+            jobs.forEach(job=>{
+                jobsList.innerHTML+=`
+                <div class="job-card" style="border:1px solid #ccc; padding:10px; margin:10px;">
+                    <h3>${job.title}</h3>
+                    <p><b>Company:</b> ${job.company}</p>
+                    <p><b>Location:</b> ${job.location}</p>
+                    <p><b>Salary:</b>${job.salary}</p>
+                    <p><b>Type:</b>${job.jobType}</p>
+                    <button onclick="applyjob('${job.title}','${job.company}')" class="apply-btn"> Apply Now</button>
+                </div>`;
+            });
+        })
+       .catch(err => {
+            document.getElementById("jobs-list").innerHTML = "<p>Error loading jobs</p>";
+            console.log(err);
+        });
+        function applyjob(jobTitle,companyName){
+            alert(`✅ Applied Successful!\n\nJob : ${jobTitle}\nCompany : ${companyName}\n\nHR will call you soon. Thank you!`);
+        }
+            btn.innerText="Applied";
+            btn.disabled=true;
+    </script>
+</body>
+</html>

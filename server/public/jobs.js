@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Job = require('../models/job');
 const Application = require('../models/application');
-const User = require('../models/user');
+const user = require('../models/user');
 const mongoose  = require('mongoose');
 //const job = require('../models/job');
 //Get all jobs

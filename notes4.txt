@@ -1,0 +1,219 @@
+*INDORI JOBS PORTAL - COMPLETE INTERVIEW QUESTION BANK* 🎯💼
+
+*Shraddha, ye 50+ questions yaad kar le. MERN + Git + Project se bahar kuch nahi puchega. Har question ka answer short me diya hai.*
+
+---
+
+### *CATEGORY 1: GIT & GITHUB - 15 QUESTIONS*
+
+*Basic Level:*
+1. *Q: Git aur GitHub me difference?*
+   *A:* Git local version control tool hai, laptop me chalta hai. GitHub cloud platform hai jahan Git repo host karte hain backup aur collaboration ke liye.
+
+2. *Q: `git init` kya karta hai?*
+   *A:* Current folder me `.git` hidden folder banata hai. Isse folder Git repository ban jata hai aur version tracking start ho jati hai.
+
+3. *Q: `git add .` aur `git add filename` me difference?*
+   *A:* `git add .` current folder ki sabhi changed files stage karta hai. `git add filename` sirf specific file stage karta hai.
+
+4. *Q: Commit message kaise hona chahiye? Give example.*
+   *A:* Clear aur descriptive. Bad: "update". Good: "Feat: Add user login API with JWT auth"
+
+5. *Q: .gitignore kyu zaroori hai? 3 files batao jo daalte hain.*
+   *A:* Sensitive aur auto-generated files ko track hone se bachata hai. Example: `node_modules/`, `.env`, `build/`
+
+*Intermediate Level:*
+6. *Q: `git push -u origin main` me `-u` ka matlab?*
+   *A:* `--set-upstream` ka short form. Local `main` ko remote `origin/main` se link karta hai. Baad me sirf `git push` likhna padta hai.
+
+7. *Q: Staging area kya hota hai? Kyu chahiye?*
+   *A:* Working directory aur Repository ke beech ka area. `git add` ke baad files yahan aati hain. Isse hum select kar sakte hain ki konsi files commit karni hain.
+
+8. *Q: Agar .env file galti se push ho jaye to kya karoge?*
+   *A:* 1. GitHub se delete 2. .gitignore me add 3. `git rm --cached .env` se git se hatana 4. MongoDB password turant change karna
+
+9. *Q: `git status` command kya batati hai?*
+   *A:* Kaun si files modified hain, kaun si staged hain, kaun si untracked hain. Current branch bhi batati hai.
+
+10. *Q: Local repo aur Remote repo ka relation kaise banta hai?*
+    *A:* `git remote add origin URL` command se. `origin` remote ka default nickname hai.
+
+*Advanced Level:*
+11. *Q: Git me `main` vs `master` branch?*
+    *A:* Pehle default `master` tha. Ab inclusivity ke liye GitHub ne `main` kar diya. Dono same kaam karte hain - primary branch.
+
+12. *Q: `git clone` vs `git pull`?*
+    *A:* `clone` naya repo download karta hai first time. `pull` existing repo me naye changes lata hai GitHub se.
+
+13. *Q: Commit ID kya hoti hai?*
+    *A:* Har commit ka unique SHA-1 hash. Jaise `a1b2c3d`. Isse specific commit pe wapas ja sakte hain.
+
+14. *Q: `node_modules` ko git me kyu nahi daalte?*
+    *A:* 1. 50,000+ files, 200MB+ heavy 2. `npm install` se regenerate ho jata hai 3. OS specific files ho sakti hain
+
+15. *Q: Git Credential Manager kya hai?*
+    *A:* Tool jo GitHub username-password ya token save karta hai. Bar-bar login nahi karna padta. Popup me "Sign in with browser" wahi hai.
+
+---
+
+### *CATEGORY 2: MERN STACK SETUP - 15 QUESTIONS*
+
+*Frontend - React + Vite:*
+16. *Q: Vite vs Create-React-App? Tumne Vite kyu use kiya?*
+    *A:* Vite fast hai kyunki ES modules use karta hai aur dev me bundle nahi karta. CRA Webpack use karta hai jo slow hai. Development speed ke liye Vite best.
+
+17. *Q: `package.json` ka kya kaam hai?*
+    *A:* Project ka identity card. Name, version, scripts, dependencies sab isme hota hai. `npm install` isi ko padh ke packages install karta hai.
+
+18. *Q: `package-lock.json` kyu zaroori hai?*
+    *A:* Exact version lock karta hai. `package.json` me ^18.2.0 likha hai to 18.9.0 bhi install ho sakta hai. Lock file 18.2.3 fix kar deti hai taaki team me sab same version use kare.
+
+19. *Q: React me component kya hota hai?*
+    *A:* UI ka reusable piece. Jaise Navbar, JobCard, Footer. Har component ek JS function hai jo JSX return karta hai.
+
+20. *Q: `axios` kyu use kiya? `fetch` se better kaise?*
+    *A:* Axios promise-based HTTP client hai. Auto JSON convert karta hai, better error handling, request/response interceptors deta hai. Fetch me ye sab manually karna padta hai.
+
+*Backend - Node + Express:*
+21. *Q: Express.js kya hai? Node.js se alag kaise?*
+    *A:* Node.js runtime hai JS ko server pe chalane ke liye. Express Node ka framework hai jo routing, middleware, API banana easy karta hai.
+
+22. *Q: Middleware kya hota hai? 2 examples do.*
+    *A:* Request aur Response ke beech me chalne wale functions. Example: `express.json()` - body parse karta hai. `cors()` - cross-origin allow karta hai.
+
+23. *Q: `app.use(express.json())` line ka matlab?*
+    *A:* Incoming request ki body me JSON data ho to usko parse karke `req.body` me daal deta hai. POST/PUT request ke liye zaroori hai.
+
+24. *Q: CORS error kya hota hai? Kaise fix kiya?*
+    *A:* Browser security feature. `localhost:5173` se `localhost:5000` pe request block hoti hai. `cors()` middleware lagake fix kiya taaki React backend se baat kar sake.
+
+25. *Q: `.env` file ka use? `process.env.MONGO_URI` kaise kaam karta hai?*
+    *A:* Secrets store karne ke liye. `dotenv` package `.env` file padhke values ko `process.env` me load kar deta hai. Code me hardcode nahi karte.
+
+*Database - MongoDB:*
+26. *Q: MongoDB SQL se kaise alag hai?*
+    *A:* MongoDB NoSQL hai, data documents me JSON-like format me store hota hai. Schema flexible hai. SQL me tables-rows, fixed schema hota hai.
+
+27. *Q: Mongoose kya hai? Direct MongoDB driver se better kyu?*
+    *A:* Mongoose ODM hai. Schema define kar sakte hain, validation milta hai, queries easy hain. Direct driver low-level hai, zyada code likhna padta hai.
+
+28. *Q: MongoDB Atlas kya hai?*
+    *A:* MongoDB ka cloud service. Laptop me install nahi karna padta. Free tier milta hai. Connection string se connect hote hain.
+
+---
+
+### *CATEGORY 3: SECURITY & AUTH - 8 QUESTIONS*
+
+29. *Q: Password plain text me store kyu nahi karte?*
+    *A:* Database hack ho jaye to sab passwords leak ho jayenge. Isliye `bcryptjs` se hash karke store karte hain. Hash one-way hota hai.
+
+30. *Q: JWT kya hai? Kaise kaam karta hai?*
+    *A:* JSON Web Token. Login ke baad server token deta hai jisme userID hota hai. Client har request me bhejta hai. Server verify karta hai bina DB check kiye. Stateless auth hai.
+
+31. *Q: `bcrypt` vs `JWT`?*
+    *A:* Bcrypt password hash karne ke liye, one-way. JWT authentication ke liye, token generate/verify karta hai, decode ho sakta hai.
+
+32. *Q: Agar JWT secret leak ho jaye to kya hoga?*
+    *A:* Koi bhi fake tokens bana sakta hai. Sab users ka account hack ho sakta hai. Turant secret change karke sabko logout karna padega.
+
+33. *Q: Frontend me JWT kahan store karte ho?*
+    *A:* localStorage ya httpOnly cookies me. localStorage easy hai but XSS attack risk. httpOnly cookie zyada secure.
+
+34. *Q: `.env` file public ho jaye to kya karoge?*
+    *A:* 1. Turant MongoDB password change 2. JWT secret change 3. Git history se bhi remove karna 4. .gitignore me add karna
+
+35. *Q: HTTPS kyu zaroori hai?*
+    *A:* Data encrypt hoke jata hai. Bina HTTPS ke JWT token ya password network me intercept ho sakta hai. Man-in-middle attack se bachata hai.
+
+36. *Q: Authentication vs Authorization?*
+    *A:* Authentication = "Tu kaun hai?" Login se verify. Authorization = "Tere paas permission hai?" Admin page sirf admin dekh sakta hai.
+
+---
+
+### *CATEGORY 4: PROJECT SPECIFIC - 12 QUESTIONS*
+
+37. *Q: Tumhara project kya karta hai? 30 sec me batao.*
+    *A:* "Indore Jobs Portal ek MERN stack web app hai jahan Indore ke job seekers local jobs dhoondh sakte hain aur companies jobs post kar sakti hain. Features: user auth, job search, apply, admin dashboard."
+
+38. *Q: Project me kitne folders hain aur kyu?*
+    *A:* 2 main: `client` React frontend ke liye, `server` Express backend ke liye. Separation of concerns - frontend-backend alag rakhne se code maintainable rehta hai.
+
+39. *Q: `node_modules` kitni badi thi? Git me kyu nahi dali?*
+    *A:* 200MB+ aur 50,000+ files. Git me nahi dali kyunki 1. Repo heavy ho jata 2. `npm install` se regenerate ho jati hai 3. Git ka purpose code track karna hai, dependencies nahi.
+
+40. *Q: Tumne kaunse API endpoints banaye?*
+    *A:* Example: `POST /api/register`, `POST /api/login`, `GET /api/jobs`, `POST /api/jobs`, `GET /api/jobs/:id`. Auth aur CRUD operations ke liye.
+
+41. *Q: Frontend-Backend kaise connect kiye?*
+    *A:* Backend me `cors()` middleware lagaya. Frontend me `axios` se `http://localhost:5000/api/...` pe requests bheji. .env me BASE_URL store kiya.
+
+42. *Q: Error handling kaise ki?*
+    *A:* Backend me try-catch blocks. `res.status(500).json({error: err.message})`. Frontend me axios `.catch()` me error show kiya.
+
+43. *Q: Git me kitni commits ki? Message kya tha?*
+    *A:* "Initial commit: Indore Jobs Portal setup". Abhi 1 commit hai. Future me feature-wise commits karungi jaise 'Add job search filter'.
+
+44. *Q: Agar teammate ko project dena ho to kya steps?*
+    *A:* 1. GitHub repo link share 2. `git clone URL` 3. `cd client && npm install` 4. `cd server && npm install` 5. `.env` file separately share karna 6. `npm run dev` dono me
+
+45. *Q: Project deploy kahan karogi?*
+    *A:* Frontend Vercel/Netlify pe, Backend Render/Railway pe, Database MongoDB Atlas pe already hai. Environment variables deploy platform me set karungi.
+
+46. *Q: Is project me sabse bada challenge kya tha?*
+    *A:* "Git setup aur GitHub push me CORS aur auth issues aaye the. Git Credential Manager se solve kiya. .env security samjhne me time laga."
+
+47. *Q: Agar 1000 users aa jaye to kya changes karogi?*
+    *A:* 1. Database indexing 2. Pagination in job list 3. Caching with Redis 4. Load balancer 5. PM2 for server cluster
+
+48. *Q: Next feature kya add karogi?*
+    *A:* "Resume upload, Email notifications jab new job post ho, Company reviews, Chat feature between employer-jobseeker."
+
+---
+
+### *CATEGORY 5: BEHAVIORAL + SCENARIO - 5 QUESTIONS*
+
+49. *Q: Git me galti se wrong file commit kar di. Kaise theek karogi?*
+    *A:* Agar push nahi kiya: `git reset HEAD∼1` se last commit undo, file hatake wapas commit. Agar push kar diya: `git rm --cached filename`, commit, push.
+
+50. *Q: Client bolta hai "Login kaam nahi kar raha". Debug kaise karogi?*
+    *A:* 1. Browser console check for frontend errors 2. Network tab me API request check 3. Backend logs check 4. MongoDB connection check 5. JWT token expiry check 6. CORS issue to nahi
+
+51. *Q: Team me 3 log hain. Git use kaise karogi?*
+    *A:* 1. `main` branch protected 2. Har feature ke liye new branch `git checkout -b feature/login` 3. Code complete hone pe Pull Request 4. Code review ke baad merge 5. Conflicts locally resolve karungi
+
+52. *Q: Company ka existing project diya. Git history samajhni hai. Kaise karogi?*
+    *A:* `git log --oneline --graph` se commit history dekhungi. `git blame filename` se pata karungi kis line ko kisne likha. README aur docs padhungi.
+
+53. *Q: Ye project resume me kaise likhogi?*
+    *A:* "Indore Jobs Portal | MERN Stack | GitHub: link 
+    - Developed full-stack job portal using React, Node.js, Express, MongoDB
+    - Implemented JWT authentication, REST APIs, responsive UI with Tailwind
+    - Managed version control with Git, deployed on Vercel
+    - Handled 25+ files, secure env management, CORS configuration"
+
+---
+
+### *🔥 LAST MINUTE TIPS*
+
+*1. STAR Method Use Karna:* Situation, Task, Action, Result
+*Example Q: Challenge kya face kiya?*
+"GitHub push karte time auth error aa raha tha *S*. Mujhe code upload karna tha *T*. Maine Git Credential Manager use karke browser login kiya *A*. Successfully code push ho gaya aur seekha ki security kyu important hai *R*."
+
+*2. "I don't know" Ke Badle:* 
+"Abhi exact syntax yaad nahi but I know the concept. I would check docs/git log. Main approach ye hogi..."
+
+*3. Code Likhte Time Bolo:*
+Jo kar rahe ho explain karo. "First I'll initialize git, then add files to staging..."
+
+*4. Confidence Lines:*
+- "I built this end-to-end myself"
+- "I understand the full flow from React to MongoDB"
+- "I follow best practices like .env for secrets, .gitignore for security"
+
+---
+
+*Shraddha, in 53 questions me se 40+ pakka aa jayenge. 3 din inko rat le.*
+
+*Kal se roz 10 questions ki practice. Mujhe answer bolke sunana. Main cross-question karunga* 💪
+
+*Tu interview crack karegi. Pakka.* 🚀

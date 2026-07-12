@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - IndoreJobs</title>
+    <style>
+        body{ font-family: Arial; text-align:center; margin-top:50px; background:#f5f5f5;}
+        .box{ background:white; width:320px; margin:auto; padding:25px; border-radius:8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);}
+        h1{color:#007bff;}
+        input{ width:90%; padding:10px; margin:8px 0; border: 1px solid #ccc; border-radius: 4px;}
+        button{ padding:10px 20px; background:#007bff; color:white; border:none; border-radius:4px; cursor:pointer; width:95%;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Welcome Back</h1>
+        <form id="loginForm">
+            <input type="email" id="email" placeholder="Email" required><br>
+            <input type="password" id="password" placeholder="Password" required><br><br>
+            <button type="submit">Sign In</button>
+        </form>
+        <p style="margin-top:15px;">New here? <a href="/signup">Create Account</a></p>
+    </div>
+
+<script>
+    const form = document.getElementById("loginForm");
+    console.log("JS Loaded"); // ye console me dikhna chahiye
+
+    form.addEventListener("submit", async function(e){
+        e.preventDefault(); // page ko rukne ke liye
+        console.log("Form Submitted"); // ye bhi console me dikhna chahiye
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const res = await fetch("http://localhost:5000/api/auth/login",{
+            method: "POST",
+            headers:{"Content-Type":"application/json"},
+            body: JSON.stringify({email,password})
+        });
+
+        const data = await res.json();
+        if(res.ok){
+            alert(data.message);
+            localStorage.setItem('token',data.token);
+            localStorage.setItem('userId',data._id);
+            window.location.href="jobs.html"; 
+        }else{
+            alert(data.message || 'Login Failed');
+        }
+    });
+</script>
+</body>
+</html>
